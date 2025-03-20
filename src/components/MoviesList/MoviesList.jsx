@@ -2,14 +2,14 @@ import './MoviesList.scss';
 import { MovieCard } from '../MovieCard';
 
 export const MoviesList = ({ movies, query }) => {
+  let filteredMovies = [...movies];
   const modifiedQuery = query.trim().toLowerCase();
-  let filteredMovies = movies;
 
   if (modifiedQuery) {
     filteredMovies = movies.filter(
       movie =>
         movie.title.toLowerCase().includes(modifiedQuery) ||
-        movie.description.toLowerCase().includes(modifiedQuery)
+        movie.description.toLowerCase().includes(modifiedQuery),
     );
   }
 
